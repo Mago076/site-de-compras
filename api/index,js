@@ -1,0 +1,16 @@
+import express from "express";
+import path from "path";
+
+const app = express();
+
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, ".."))); // serve arquivos estáticos da raiz
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "index.html"));
+});
+
+// outras rotas aqui...
+
+export default app;
